@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web to Markdown</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked@14.1.2/marked.min.js" defer></script>
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <h1>Web to Markdown</h1>
+        <p class="subtitle">Paste a URL, get clean Markdown</p>
+      </header>
+
+      <form id="convert-form" class="convert-bar" autocomplete="off">
+        <input
+          id="url-input"
+          class="url-input"
+          type="url"
+          name="url"
+          placeholder="https://example.com/article"
+          required
+          spellcheck="false"
+        />
+        <button id="convert-btn" class="convert-btn" type="submit">Convert</button>
+      </form>
+
+      <p id="status" class="status" role="status" aria-live="polite" hidden></p>
+
+      <section class="panels" aria-label="Results">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Preview</h2>
+          </div>
+          <div id="preview" class="panel-body preview prose">
+            <p class="placeholder">Converted Markdown preview will appear here.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Markdown</h2>
+            <button id="download-btn" class="download-btn" type="button" disabled>
+              Download .md
+            </button>
+          </div>
+          <pre id="markdown" class="panel-body markdown-source"><code class="placeholder">Source Markdown will appear here.</code></pre>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
